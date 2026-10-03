@@ -1,1 +1,1 @@
-# MCHOSE-A7-Battery
+# MCHOSE-A7pro-Battery
