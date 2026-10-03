@@ -96,3 +96,5 @@ dotnet run --project tests/MchoseBattery.Tests -c Release
 ## 授權與致謝
 
 本專案採 [MIT License](LICENSE)。通訊格式參考 [alexfrih/mchose-linux](https://github.com/alexfrih/mchose-linux)（MIT），並以 A7 Pro 實機回報驗證。裝置變動通知使用 [HidSharp](https://github.com/IntergatedCircuits/HidSharp)（Apache-2.0）。完整第三方聲明見 [THIRD-PARTY-NOTICES.txt](THIRD-PARTY-NOTICES.txt)。
+
+作者：`xian.1022`
