@@ -1,6 +1,7 @@
 # MCHOSE A7 Pro Battery
 
-在 Windows 工作列右下角查看 **MCHOSE A7 Pro 滑鼠電量**。一個滑鼠圖示，搭配電量環與放大的充電閃電，無需一直開著原廠設定介面。
+在 Windows 工作列右下角查看 **MCHOSE A7 Pro 滑鼠電量**。
+一個滑鼠圖示，搭配電量環與放大的充電閃電，無需一直開著原廠設定介面。
 
 **[下載最新版（Windows x64）](https://github.com/xian1022/MCHOSE-A7pro-Battery/releases/latest)** · [回報問題](https://github.com/xian1022/MCHOSE-A7pro-Battery/issues)
 
