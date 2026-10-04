@@ -14,7 +14,9 @@ foreach ($file in @('README.md', 'LICENSE', 'THIRD-PARTY-NOTICES.txt')) {
     Copy-Item -LiteralPath (Join-Path $PSScriptRoot $file) -Destination $output -Force
 }
 New-Item -ItemType Directory -Path (Join-Path $output 'docs') -Force | Out-Null
-Copy-Item -LiteralPath (Join-Path $PSScriptRoot 'docs/icon-preview.png') -Destination (Join-Path $output 'docs/icon-preview.png') -Force
+foreach ($image in @('icon-preview.png', 'context-menu.png', 'status-window.png')) {
+    Copy-Item -LiteralPath (Join-Path $PSScriptRoot "docs/$image") -Destination (Join-Path $output "docs/$image") -Force
+}
 $artifacts = Join-Path $PSScriptRoot 'artifacts'
 New-Item -ItemType Directory -Path $artifacts -Force | Out-Null
 $zip = Join-Path $artifacts 'MCHOSE-A7pro-Battery-win-x64.zip'
