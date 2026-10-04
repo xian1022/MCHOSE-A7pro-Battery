@@ -84,5 +84,17 @@ Test("Tooltip explicitly distinguishes not charging and unknown charging", () =>
     Check((r with{Charge=ChargeState.Unknown}).Tooltip.Contains("充電狀態未知"),"unknown charge omitted");
     Check(!new BatteryReading(DeviceKind.Mouse,LinkState.Disconnected).Tooltip.Contains("充電"),"offline misleading charging label");
 });
+Test("First launch enables startup; existing opt-out survives upgrade", () => {
+    Check(StartupSettings.Parse(null).AutoStart,"first launch not enabled");
+    Check(StartupSettings.Parse("{}").AutoStart,"missing preference not defaulted");
+    Check(!StartupSettings.Parse("{\"AutoStart\":false,\"RefreshSeconds\":30}").AutoStart,"explicit opt-out overwritten");
+    Check(StartupSettings.Parse("{\"AutoStart\":true}").AutoStart,"opt-in lost");
+});
+Test("Invalid startup settings are not silently treated as consent", () => {
+    foreach(var json in new[]{"null","{broken","{\"AutoStart\":\"false\"}"}) {
+        bool rejected=false;try{StartupSettings.Parse(json);}catch(System.Text.Json.JsonException){rejected=true;}
+        Check(rejected,"invalid settings accepted");
+    }
+});
 Console.WriteLine($"{total-failures}/{total} passed");
 return failures == 0 ? 0 : 1;

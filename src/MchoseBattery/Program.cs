@@ -22,6 +22,7 @@ internal static class Program
         if(!created)return 0;
         try {
             ApplicationConfiguration.Initialize();
+            AppStore.InitializeAutoStart();
             Application.ThreadException+=(_,e)=>AppStore.Log(e.Exception.ToString());
             AppDomain.CurrentDomain.UnhandledException+=(_,e)=>AppStore.Log(e.ExceptionObject.ToString()!);
             Application.Run(new TrayContext());return 0;
